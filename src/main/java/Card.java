@@ -26,6 +26,14 @@ public class Card {
         this.pattern = pattern;
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
     private int numberToPoint(int number) {
         if (number >= 11)
             return 10;
