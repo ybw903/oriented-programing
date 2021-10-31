@@ -1,14 +1,17 @@
 public class Card {
+
     private String denomination;
     private String pattern;
+    private int point;
+
+    public Card(String pattern, int index) {
+        this.pattern = pattern;
+        this.denomination = this.numberToDenomination(index);
+        this.point = this.numberToPoint(index);
+    }
 
     public String getDenomination() {
         return denomination;
-    }
-
-    public Card(String denomination, String pattern) {
-        this.denomination = denomination;
-        this.pattern = pattern;
     }
 
     public void setDenomination(String denomination) {
@@ -21,6 +24,25 @@ public class Card {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
+    }
+
+    private int numberToPoint(int number) {
+        if (number >= 11)
+            return 10;
+        return number;
+    }
+
+    private String numberToDenomination(int number) {
+        if (number == 1) {
+            return "A";
+        } else if (number == 11) {
+            return "J";
+        } else if (number == 12) {
+            return "Q";
+        } else if (number == 13) {
+            return "K";
+        }
+        return String.valueOf(number);
     }
 
     @Override
